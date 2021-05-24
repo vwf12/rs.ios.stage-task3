@@ -171,11 +171,11 @@
 		8293ECC126346C7500CEE768 /* ios.stage-taskTests */ = {
 			isa = PBXGroup;
 			children = (
-				7AF396602656A588003A569D /* LevelOrderTests.m */,
 				82ADF97E26566ACF00D81DB7 /* DateHelperTests.m */,
-				8293ECC426346C7500CEE768 /* Info.plist */,
-				82ADF97626558D7700D81DB7 /* LexicographicallyMinimalTests.m */,
 				82ADF97526558D7700D81DB7 /* PlayersSeparatorTest.m */,
+				82ADF97626558D7700D81DB7 /* LexicographicallyMinimalTests.m */,
+				7AF396602656A588003A569D /* LevelOrderTests.m */,
+				8293ECC426346C7500CEE768 /* Info.plist */,
 			);
 			path = "ios.stage-taskTests";
 			sourceTree = "<group>";
