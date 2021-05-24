@@ -3,7 +3,6 @@
 
 #import <Foundation/Foundation.h>
 
-//extern int GlobalIndex;
 
 NSArray *LevelOrderTraversalForTree(NSArray *tree);
 

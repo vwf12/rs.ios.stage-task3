@@ -27,7 +27,7 @@ int main(int argc, char * argv[]) {
             NSLog(@"nil");
         }
         NSMutableArray *sortedArray = [NSMutableArray new];
-        NSMutableArray *eachLevelArray = [NSMutableArray array];
+
         NSInteger currentLevel = 0;
         NSInteger nullCounter = 0;
         
@@ -58,12 +58,14 @@ int main(int argc, char * argv[]) {
                     [sortedArray addObject:[NSMutableArray new]];
                 }
                 
+                NSInteger correctNumbersInPreviousLevel = 0;
+                NSInteger correctNumbersInThisLevel = 0;
 //                for (id element in sortedArray[currentLevel-1]) {
 //                    if ([element isKindOfClass:[NSNumber class]]) {
 //                        correctNumbersInLevel += 1;
 //                    }
 //                }
-        
+                
                 
                 while ([sortedArray[currentLevel] count] == 2) {
                     if (currentLevel == 0) {
@@ -71,10 +73,52 @@ int main(int argc, char * argv[]) {
                     }
                     currentLevel -= 1;
                 }
+                
+//                correctNumbersInPreviousLevel = 0;
+//                for (id element in sortedArray[currentLevel-1]) {
+//                    if ([element isKindOfClass:[NSNumber class]]) {
+//                        correctNumbersInPreviousLevel += 1;
+//                    }
+//                }
+//
+//                correctNumbersInThisLevel = 0;
+//                for (id element in sortedArray[currentLevel]) {
+//                    if ([element isKindOfClass:[NSNumber class]]) {
+//                        correctNumbersInThisLevel += 1;
+//                    }
+//                }
+                
                 if (currentLevel == 0) {
                     currentLevel +=1;
-                    while ([sortedArray[currentLevel] count] == 2) {
+                    correctNumbersInPreviousLevel = 0;
+                    for (id element in sortedArray[currentLevel-1]) {
+                        if ([element isKindOfClass:[NSNumber class]]) {
+                            correctNumbersInPreviousLevel += 1;
+                        }
+                    }
+                    
+                    correctNumbersInThisLevel = 0;
+                    for (id element in sortedArray[currentLevel]) {
+                        if ([element isKindOfClass:[NSNumber class]]) {
+                            correctNumbersInThisLevel += 1;
+                        }
+                    }
+                    while ([sortedArray[currentLevel] count] == 2 && correctNumbersInThisLevel > correctNumbersInPreviousLevel) {
                         currentLevel += 1;
+                        
+                        correctNumbersInPreviousLevel = 0;
+                        for (id element in sortedArray[currentLevel-1]) {
+                            if ([element isKindOfClass:[NSNumber class]]) {
+                                correctNumbersInPreviousLevel += 1;
+                            }
+                        }
+                        
+                        correctNumbersInThisLevel = 0;
+                        for (id element in sortedArray[currentLevel]) {
+                            if ([element isKindOfClass:[NSNumber class]]) {
+                                correctNumbersInThisLevel += 1;
+                            }
+                        }
                     }
                 }
             }
